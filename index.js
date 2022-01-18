@@ -34,6 +34,9 @@ function login() {
       // Declare user variable
       var user = auth.currentUser;
 
+
+      localStorage.setItem("User", true) //------------------------------------------------------------------------------------------------------------
+
       // Add this user to Firebase Database
       var database_ref = database.ref();
 
@@ -57,7 +60,7 @@ function login() {
 
       // DOne
       // alert('User Logged In!!')
-     window.location.replace("protected.html");
+     window.location.href = "/protected.html";
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
@@ -102,4 +105,6 @@ function validate_field(field) {
 }
 
 
-// ----------------
+if(localStorage.getItem("User")){ //------------------------------------------------------------------------------------------------------------
+ window.location.href = "/protected.html" //------------------------------------------------------------------------------------------------------------
+} //------------------------------------------------------------------------------------------------------------
